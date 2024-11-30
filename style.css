@@ -8,7 +8,7 @@ body {
 
 /* Шапка */
 .header {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -17,46 +17,48 @@ body {
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    text-align: center; /* Центрируем все содержимое шапки */
+    text-align: center;
 }
 
 /* Логотип */
 .logo {
     display: flex;
-    justify-content: center; /* Логотип и название по центру */
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: unset;
 }
 
 .logo img {
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-/* Меню (по умолчанию на десктопах) */
-nav {
-    background-color: #1e88e5; /* Фон для меню */
-    width: 100%;
-    display: block; /* Показываем меню на десктопах */
+    height: 100px;
+    margin-bottom: 1px;
 }
 
 .menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Центрируем ссылки меню */
+    position: relative;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    /*background-color: #1e88e5;*/
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.menu.show {
+    display: block;
+    max-height: 200px;
 }
 
 .menu li {
-    display: inline-block; /* Горизонтальное расположение пунктов меню */
+    display: inline-block;
     margin: 10px 20px;
 }
 
 .menu li a {
     color: white;
-    text-decoration: none;
+    text-align: left;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 1px 2px;
     display: block;
 }
 
@@ -64,160 +66,81 @@ nav {
     text-decoration: underline;
 }
 
-/* Кнопка меню на мобильных устройствах */
+/* Кнопка меню */
 .menu-toggle {
     display: none;
     background: none;
     border: none;
     color: white;
+    width: 100%;
     font-size: 30px;
     cursor: pointer;
-    margin-top: 10px; /* Расстояние между кнопкой и меню */
+    margin-top: 10px;
 }
-
-.menu-open {
-    margin-top: 200px; /* или любое другое значение, чтобы сдвигать контент */
-}
-
-.menu {
-    display: none;
-}
-
-.menu.show {
-    display: block; /* Показываем меню, когда добавлен класс 'show' */
-}
-
 
 /* Адаптивность для мобильных */
 @media screen and (max-width: 768px) {
-    /* Показываем кнопку меню только на мобильных */
     .menu-toggle {
         display: block;
+        width: 100%;
     }
 
-    /* Меню вертикально на мобильных устройствах */
     .menu li {
         display: block;
         margin: 10px 0;
     }
 
-    /* Скрываем горизонтальное меню на мобильных */
     nav {
-        display: none;
+        display: block;
     }
 }
 
 /* Основной контент */
 .main {
-    margin-top: 180px; /* Отступ от шапки, чтобы контент не перекрывался */
+    margin-top: 40px;
     padding: 20px;
+    transition: margin-top 0.3s ease;
+}
+
+.main.shifted {
+    margin-top: 210px;
 }
 
 /* Секция для контента */
 .grid-container {
     display: grid;
+    text-align: center;
+    background-color: rgba(76, 163, 239, 0.53);
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
 section {
-    background-color: #e3f2fd;
+    /*background-color: rgba(76, 163, 239, 0.53);*/
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-
-/* Отзывы */
-.reviews article {
-    background-color: #e1f5fe;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* Футер */
-.footer {
-    background-color: #1e88e5;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-section {
-    background-color: #e3f2fd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Отзывы */
-.reviews article {
-    background-color: #e1f5fe;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* Футер */
-.footer {
-    background-color: #1e88e5;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-section {
-    background-color: #e3f2fd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Отзывы */
-.reviews article {
-    background-color: #e1f5fe;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* Футер */
-.footer {
-    background-color: #1e88e5;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
 
 /* Медиа-запросы для адаптивности */
 @media screen and (max-width: 768px) {
     .menu {
-        display: none; /* Скрываем меню на мобильных устройствах */
+        display: none;
     }
 
     .logo {
         justify-content: center;
     }
 
+    .menu-toggle {
+        display: block;
+        width: 100%;
+    }
+
     .grid-container {
-        grid-template-columns: 1fr; /* Секции в один столбец */
+        grid-template-columns: 1fr;
     }
 }
 
@@ -228,7 +151,7 @@ section {
     }
 
     .logo img {
-        height: 50px;
+        height: 100px;
     }
 
     section {
@@ -238,21 +161,35 @@ section {
 
 /* Секция таблицы */
 .table-section {
+    background-color: rgb(167, 204, 237);
     margin-top: 20px;
     padding: 20px;
-    background-color: #e3f2fd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 40px 80px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
+
+.table-section h2 {
+    background-color: rgba(94, 174, 244, 0.53);
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Контейнер таблицы */
 .table-container {
-    overflow-x: auto; /* Позволяет прокручивать таблицу на маленьких экранах */
+    overflow-x: auto;
+    text-align: center;
+    background-color: rgba(30, 136, 229, 0.66);
 }
 
 .table {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+    grid-template-columns: repeat(3, 1fr);
     border-collapse: collapse;
     width: 100%;
 }
@@ -261,7 +198,7 @@ section {
     display: contents;
     font-weight: bold;
     background-color: #1e88e5;
-    color: white;
+    color: #000000;
 }
 
 .table-row {
@@ -270,18 +207,18 @@ section {
 
 .table div {
     padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 .table div:nth-child(odd) {
-    background-color: #f9f9f9;
+    background-color: #7ec0fb;
 }
 
 /* Адаптивность таблицы */
 @media screen and (max-width: 768px) {
     .table {
-        grid-template-columns: 1fr; /* Одна колонка */
+        grid-template-columns: 1fr;
     }
 
     .table div {
@@ -289,6 +226,27 @@ section {
     }
 
     .table-header div {
-        display: none; /* Скрываем заголовки для компактности */
+        display: none;
     }
+}
+
+/* Отзывы */
+.reviews article {
+    background-color: #e1f5fe;
+    padding: 15px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.reviews {
+    background-color: rgba(76, 163, 239, 0.53);
+}
+
+/* Футер */
+.footer {
+    background-color: #1e88e5;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
