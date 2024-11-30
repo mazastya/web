@@ -62,9 +62,17 @@ body {
     display: block;
 }
 
-.menu li a:hover {
-    text-decoration: underline;
+.menu li:hover {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
 }
+
+.menu li.active {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 
 /* Кнопка меню */
 .menu-toggle {
