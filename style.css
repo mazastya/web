@@ -1,98 +1,134 @@
-/* Основной стиль для всей страницы */
+/* Общие стили */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    background-color: #f4f4f9;
 }
 
-/* Логотип и заголовок */
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+/* Шапка */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #1e88e5;
     color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center; /* Центрируем все содержимое шапки */
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    justify-content: center; /* Логотип и название по центру */
+    align-items: center;
+    flex-direction: column;
 }
 
 .logo img {
-    margin-right: 10px;
+    height: 50px;
+    margin-bottom: 10px;
 }
 
-.logo h1 {
-    font-size: 24px;
-    text-align: center;
-    flex-grow: 1;
+/* Меню (по умолчанию на десктопах) */
+nav {
+    background-color: #1e88e5; /* Фон для меню */
+    width: 100%;
+    display: block; /* Показываем меню на десктопах */
 }
 
-/* Меню навигации */
 .menu {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    background-color: #42a5f5;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Центрируем ссылки меню */
 }
 
 .menu li {
-    margin-right: 20px;
+    display: inline-block; /* Горизонтальное расположение пунктов меню */
+    margin: 10px 20px;
 }
 
 .menu li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px 20px;
+    display: block;
 }
 
 .menu li a:hover {
     text-decoration: underline;
 }
 
-/* Основные стили для секций */
+/* Кнопка меню на мобильных устройствах */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 10px; /* Расстояние между кнопкой и меню */
+}
+
+.menu-open {
+    margin-top: 200px; /* или любое другое значение, чтобы сдвигать контент */
+}
+
+.menu {
+    display: none;
+}
+
+.menu.show {
+    display: block; /* Показываем меню, когда добавлен класс 'show' */
+}
+
+
+/* Адаптивность для мобильных */
+@media screen and (max-width: 768px) {
+    /* Показываем кнопку меню только на мобильных */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Меню вертикально на мобильных устройствах */
+    .menu li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Скрываем горизонтальное меню на мобильных */
+    nav {
+        display: none;
+    }
+}
+
+/* Основной контент */
 .main {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
+    margin-top: 180px; /* Отступ от шапки, чтобы контент не перекрывался */
+    padding: 20px;
+}
+
+/* Секция для контента */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 section {
-    /*min-height: 80vh; !* Каждая секция занимает всю высоту экрана *!*/
     background-color: #e3f2fd;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
 }
 
-section h2 {
-    font-size: 20px;
-    color: #1e88e5;
-}
 
-section p {
-    font-size: 14px;
-    color: #555;
-}
-
-/* Стили для формы заявок */
-.form-request {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #bbdefb;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.form-request h5 {
-    color: #0d47a1;
-    font-size: 16px;
-}
-
-/* Стили для отзывов */
+/* Отзывы */
 .reviews article {
     background-color: #e1f5fe;
     padding: 15px;
@@ -100,26 +136,159 @@ section p {
     margin-bottom: 10px;
 }
 
-/* Стили для футера */
-footer {
+/* Футер */
+.footer {
     background-color: #1e88e5;
     color: white;
+    text-align: center;
     padding: 20px;
 }
 
-footer h3 {
-    margin: 0;
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-footer p, footer blockquote, footer pre {
+section {
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Отзывы */
+.reviews article {
+    background-color: #e1f5fe;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Футер */
+.footer {
+    background-color: #1e88e5;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+section {
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Отзывы */
+.reviews article {
+    background-color: #e1f5fe;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Футер */
+.footer {
+    background-color: #1e88e5;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none; /* Скрываем меню на мобильных устройствах */
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Секции в один столбец */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+/* Секция таблицы */
+.table-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер таблицы */
+.table-container {
+    overflow-x: auto; /* Позволяет прокручивать таблицу на маленьких экранах */
+}
+
+.table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-header {
+    display: contents;
+    font-weight: bold;
+    background-color: #1e88e5;
     color: white;
 }
 
-/* Блок цитаты */
-blockquote {
-    font-style: italic;
-    margin: 20px;
+.table-row {
+    display: contents;
+}
+
+.table div {
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-left: 4px solid white;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table div:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Адаптивность таблицы */
+@media screen and (max-width: 768px) {
+    .table {
+        grid-template-columns: 1fr; /* Одна колонка */
+    }
+
+    .table div {
+        text-align: center;
+    }
+
+    .table-header div {
+        display: none; /* Скрываем заголовки для компактности */
+    }
 }
