@@ -258,3 +258,34 @@ section {
     text-align: center;
     padding: 20px;
 }
+
+/* Конструктор заказов */
+.order-constructor {
+    padding: 20px;
+}
+
+.order-constructor h2 {
+    margin-bottom: 20px;
+}
+
+#orderTableContainer {
+    margin-top: 20px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.order-table th, .order-table td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 8px;
+}
+
+.order-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
