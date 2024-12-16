@@ -3,8 +3,18 @@
         const footer = document.querySelector('.footer');
 
         if (footer) {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-            const statsMessage = `Страница загрузилась за ${loadTime} мс.`;
+            let loadTime = 0;
+            const navigationEntry = performance.getEntriesByType('navigation')[0];
+
+            if (navigationEntry) {
+                loadTime = navigationEntry.loadEventEnd - navigationEntry.startTime;
+            }
+
+            if (loadTime <= 0) {
+                loadTime = performance.now();
+            }
+
+            const statsMessage = `Страница загрузилась за ${Math.round(loadTime)} мс.`;
             const statsElement = document.createElement('div');
             statsElement.textContent = statsMessage;
             statsElement.style.fontSize = '14px';
@@ -14,6 +24,7 @@
         }
     });
 })();
+
 
 (function () {
     // Обработка активного пункта меню на основе URL
@@ -31,6 +42,3 @@
         });
     });
 })();
-
-
-
