@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sharing & Caring</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/script.js" defer></script>
+  <script src="js/index.js" defer></script>
+  <script src="js/fetchData.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="logo">
+    <img src="img/logo.png" alt="Логотип">
+    <h1>Sharing & Caring</h1>
+  </div>
+  <button class="menu-toggle">☰</button> <!-- Кнопка меню -->
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="profile.html">Профиль</a></li>
+      <li><a href="services.html">Мои услуги</a></li>
+      <li><a href="order.html">Заказать услугу</a></li>
+      <li><a href="order-constructor.html">Конструктор заказов</a></li>
+      <li><a href="fetch-orders.html" class="active">Заказы с данными</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Данные заказов</h1>
+  <div id="dataContainer">
+    <div id="preloader" class="hidden">Загрузка данных...</div>
+    <div id="errorMessage" class="hidden">⚠ Что-то пошло не так.</div>
+    <table id="dataTable" class="hidden">
+      <thead>
+      <tr>
+        <th>Заголовок</th>
+        <th>Сообщение</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sharing & Caring</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/order-constructor.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <img src="img/logo.png" alt="Логотип">
+        <h1>Sharing & Caring</h1>
+    </div>
+    <button class="menu-toggle">☰</button> <!-- Кнопка меню -->
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="profile.html">Профиль</a></li>
+            <li><a href="services.html">Мои услуги</a></li>
+            <li><a href="order.html">Заказать услугу</a></li>
+            <li><a href="order-constructor.html">Конструктор заказов</a></li>
+            <li><a href="fetch-orders.html" class="active">Заказы с данными</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="order-constructor">
+        <h2>Конструктор заказов</h2>
+        <form id="orderForm">
+            <label for="orderTitle">Заголовок заказа:</label>
+            <input type="text" id="orderTitle" name="orderTitle" required>
+
+            <label for="startDate">Дата начала:</label>
+            <input type="date" id="startDate" name="startDate" required>
+
+            <label for="orderCount">Количество заказов:</label>
+            <input type="number" id="orderCount" name="orderCount" required>
+
+            <button type="submit">Создать заказ</button>
+        </form>
+
+        <button id="loadOrders">Загрузить заказы</button>
+        <div id="orderTableContainer"></div>
+    </section>
+</main>
+<footer class="footer">
+    <p>Сайт для работы с заказами</p>
+</footer>
+</body>
+</html>
