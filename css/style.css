@@ -289,3 +289,38 @@ section {
     font-weight: bold;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #0073e6;
+    color: white;
+}
+
+#preloader {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin: 20px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#errorMessage {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
