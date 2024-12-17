@@ -4,26 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataTable = document.getElementById('dataTable');
     const dataTableBody = dataTable.querySelector('tbody');
 
-    // Показываем предзагрузчик
     function showPreloader() {
         preloader.classList.remove('hidden');
         errorMessage.classList.add('hidden');
         dataTable.classList.add('hidden');
     }
 
-    // Скрываем предзагрузчик
     function hidePreloader() {
         preloader.classList.add('hidden');
     }
 
-    // Показываем сообщение об ошибке
     function showError(message) {
         hidePreloader();
         errorMessage.textContent = `⚠ ${message}`;
         errorMessage.classList.remove('hidden');
     }
 
-    // Отображаем данные в таблице
     function renderData(data) {
         hidePreloader();
         dataTableBody.innerHTML = '';
@@ -40,11 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
         dataTable.classList.remove('hidden');
     }
 
-    // Выполняем Fetch запрос
     async function fetchData() {
         showPreloader();
 
-        // Генерируем случайный фильтр
         const randomFilter = Math.random() > 0.5 ? '?id_gte=100' : '?id_lte=200';
 
         try {
@@ -54,12 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = await response.json();
-            renderData(data.slice(0, 10)); // Отображаем только первые 10 записей
+            renderData(data.slice(0, 10));
         } catch (error) {
             showError(error.message);
         }
     }
 
-    // Запускаем Fetch запрос при загрузке страницы
     fetchData();
 });
